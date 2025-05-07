@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinod Kumar V | Data Engineer & Hadoop Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <style>
+        :root {
+            --primary: #0ff;
+            --secondary: #8A2BE2;
+            --dark: #0a192f;
+            --darker: #060d18;
+            --light: #8892b0;
+            --lighter: #a8b2d1;
+            --accent: #64ffda;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--darker);
+            color: var(--lighter);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .mono {
+            font-family: 'Share Tech Mono', monospace;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            position: relative;
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        
+        .tech-card {
+            background: rgba(10, 25, 47, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+            border-color: var(--primary);
+        }
+        
+        .skill-bar {
+            height: 14px;
+            background: rgba(138, 43, 226, 0.2);
+            border-radius: 7px;
+            overflow: hidden;
+            position: relative;
+            margin: 10px 0;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 7px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .exp-timeline {
+            position: relative;
+        }
+        
+        .exp-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--primary), var(--secondary), transparent);
+            transform: translateX(-50%);
+        }
+        
+        .exp-item {
+            position: relative;
+            padding: 30px;
+            background: rgba(10, 25, 47, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .exp-item:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -11px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 10px var(--primary);
+        }
+        
+        .exp-item:nth-child(even) {
+            margin-left: auto;
+        }
+        
+        .exp-item:nth-child(even)::before {
+            right: auto;
+            left: -11px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .badge:hover {
+            background: rgba(0, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .project-card {
+            perspective: 1000px;
+            height: 350px;
+            margin-bottom: 30px;
+        }
+        
+        .project-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .project-card:hover .project-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .project-card-front, .project-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+        
+        .project-card-front {
+            background: rgba(10, 25, 47, 0.7);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .project-card-back {
+            background: rgba(10, 25, 47, 0.9);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            padding: 20px;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .achievement {
+            background: rgba(10, 25, 47, 0.7);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .achievement:hover {
+            transform: translateX(10px);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        .achievement-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: var(--primary);
+        }
+        
+        .terminal {
+            background: rgba(6, 13, 24, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--primary);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            overflow: hidden;
+        }
+        
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        .terminal-dots {
+            display: flex;
+        }
+        
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .terminal-dot-red {
+            background: #ff5f56;
+        }
+        
+        .terminal-dot-yellow {
+            background: #ffbd2e;
+        }
+        
+        .terminal-dot-green {
+            background: #27c93f;
+        }
+        
+        .terminal-content {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .terminal-text {
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid var(--primary);
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary) }
+        }
+        
+        .radar-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            margin: 20px 0;
+        }
+        
+        .contact-form input, .contact-form textarea {
+            background: rgba(10, 25, 47, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            color: var(--lighter);
+            padding: 10px 15px;
+            width: 100%;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+        
+        .contact-form button {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form button:hover {
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        
+        .social-icon {
+            font-size: 24px;
+            margin: 0 10px;
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .nav-link {
+            position: relative;
+            color: var(--lighter);
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 5px 0;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: transparent;
+            z-index: 1000;
+        }
+        
+        .progress-bar {
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            width: 0%;
+        }
+        
+        .tech-icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(10, 25, 47, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        .tech-icon i {
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .tech-icon::before {
+            content: attr(data-name);
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 25, 47, 0.9);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .tech-icon:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Share Tech Mono', monospace;
+        }
+        
+        .counter-title {
+            font-size: 1rem;
+            color: var(--lighter);
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .exp-timeline::before {
+                left: 30px;
+            }
+            
+            .exp-item {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+            }
+            
+            .exp-item::before {
+                left: -11px;
+                right: auto;
+            }
+            
+            .exp-item:nth-child(even) {
+                margin-left: 60px;
+            }
+            
+            .radar-container {
+                height: 400px;
+            }
+        }
+
+        /* Game elements */
+        .game-level {
+            position: relative;
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 20px;
+            color: var(--primary);
+            font-family: 'Share Tech Mono', monospace;
+            margin-left: 10px;
+        }
+        
+        .xp-bar {
+            height: 6px;
+            width: 100%;
+            background: rgba(138, 43, 226, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 3px;
+        }
+        
+        .xp-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+            width: 85%;
+        }
+        
+        .unlockable {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .locked {
+            filter: grayscale(100%) brightness(40%);
+            position: relative;
+        }
+        
+        .locked::after {
+            content: '\f023';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 25, 47, 0.9);
+            color: var(--lighter);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            width: 200px;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .unlockable:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            bottom: 110%;
+        }
+        
+        .skill-point {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: var(--lighter);
+            border-radius: 50%;
+            margin-right: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-point.active {
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+        
+        .memory-game {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            perspective: 1000px;
+            margin: 30px 0;
+        }
+        
+        .memory-card {
+            position: relative;
+            height: 80px;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transform: scale(1);
+            transition: transform 0.3s;
+        }
+        
+        .memory-card:active {
+            transform: scale(0.95);
+        }
+        
+        .memory-card.flip {
+            transform: rotateY(180deg);
+        }
+        
+        .memory-card-front, .memory-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            backface-visibility: hidden;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .memory-card-front {
+            background: linear-gradient(135deg, var(--dark), var(--darker));
+            border: 1px solid var(--primary);
+            transform: rotateY(180deg);
+        }
+        
+        .memory-card-back {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: 1px solid var(--lighter);
+            font-size: 30px;
+            color: var(--darker);
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <div class="content">
+        <header class="fixed top-0 w-full bg-opacity-80 bg-gray-900 backdrop-filter backdrop-blur-md z-10 shadow-lg">
+            <div class="container mx-auto py-4 px-6 flex justify-between items-center">
+                <div class="text-2xl font-bold mono gradient-text">VV.dev</div>
+                <nav class="hidden md:flex">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+                <div class="game-level">
+                    <span>LVL 8</span>
+                    <div class="xp-bar">
+                        <div class="xp-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <section id="about" class="section min-h-screen flex items-center pt-28">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="md:pr-10">
+                        <h1 class="text-5xl md:text-7xl font-bold mb-4">
+                            <span class="gradient-text">VINOD</span> KUMAR V
+                        </h1>
+                        <h2 class="text-2xl md:text-3xl mb-6 mono text-gray-400">Hadoop Developer & Data Engineer</h2>
+                        
+                        <div class="terminal mb-8">
+                            <div class="terminal-header">
+                                <div class="terminal-dots">
+                                    <div class="terminal-dot terminal-dot-red"></div>
+                                    <div class="terminal-dot terminal-dot-yellow"></div>
+                                    <div class="terminal-dot terminal-dot-green"></div>
+                                </div>
+                                <div class="mono text-xs">vinod@dataengineering:~</div>
+                            </div>
+                            <div class="terminal-content">
+                                <p class="terminal-text" id="terminalText">Loading professional profile...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap mb-10">
+                            <div class="tech-icon" data-name="Hadoop">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="tech-icon" data-name="Spark">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="tech-icon" data-name="AWS">
+                                <i class="fab fa-aws"></i>
+                            </div>
+                            <div class="tech-icon" data-name="Azure">
+                                <i class="fab fa-microsoft"></i>
+                            </div>
+                            <div class="tech-icon" data-name="Python">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="tech-icon" data-name="Scala">
+                                <i class="fas fa-code"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="flex space-x-4">
+                            <a href="#contact" class="bg-transparent hover:bg-cyan-900 text-cyan-300 hover:text-white border border-cyan-300 hover:border-transparent px-6 py-2 rounded transition-all duration-300 flex items-center">
+                                <i class="fas fa-envelope mr-2"></i> Contact Me
+                            </a>
+                            <a href="#skills" class="bg-cyan-700 hover:bg-cyan-600 text-white px-6 py-2 rounded transition-all duration-300 flex items-center">
+                                <i class="fas fa-chart-bar mr-2"></i> View Skills
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="rounded-lg overflow-hidden tech-card p-6 h-full">
+                            <h3 class="text-xl font-bold mb-4 gradient-text">PROFESSIONAL SUMMARY</h3>
+                            <ul class="space-y-4">
+                                <li class="flex">
+                                    <i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i>
+                                    <p>8+ years of hands-on experience in Data Engineering with expertise in the Hadoop Ecosystem, Spark, Scala including AWS, Azure and Snowflake.</p>
+                                </li>
+                                <li class="flex">
+                                    <i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i>
+                                    <p>Expertise in designing and implementing data processing solutions using technologies such as Apache Kafka and Spark Streaming.</p>
+                                </li>
+                                <li class="flex">
+                                    <i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i>
+                                    <p>Managed and monitored large-scale Cloudera Hadoop clusters with HDFS, YARN, and MapReduce services.</p>
+                                </li>
+                                <li class="flex">
+                                    <i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i>
+                                    <p>Integrated Azure Databricks with Azure Data Lake Storage and Azure Event Hubs for real-time data processing.</p>
+                                </li>
+                                <li class="flex">
+                                    <i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i>
+                                    <p>Expertise in ETL processes, Data warehousing, and building scalable data pipelines.</p>
+                                </li>
+                            </ul>
+                            
+                            <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="text-center">
+                                    <div class="counter" id="counter1">0</div>
+                                    <div class="counter-title">Years Experience</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="counter" id="counter2">0</div>
+                                    <div class="counter-title">Projects Completed</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="counter" id="counter3">0</div>
+                                    <div class="counter-title">Technologies</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="counter" id="counter4">0</div>
+                                    <div class="counter-title">Certifications</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills" class="section py-20">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-2">Technical <span class="gradient-text">Skills</span></h2>
+                <p class="mb-10 text-gray-400">Click on skill areas to explore my expertise</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="tech-card p-6 rounded-lg unlockable">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-cloud text-cyan-400 mr-3"></i> Cloud Technologies
+                            <div class="ml-auto">
+                                <div class="flex">
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                </div>
+                            </div>
+                        </h3>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Azure Services</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>AWS Services</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Snowflake</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>GCP</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap mt-6">
+                            <span class="badge">Azure Data Factory</span>
+                            <span class="badge">Azure Databricks</span>
+                            <span class="badge">Azure Data Lake</span>
+                            <span class="badge">AWS EC2</span>
+                            <span class="badge">AWS S3</span>
+                            <span class="badge">Snowflake</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-card p-6 rounded-lg unlockable">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-database text-cyan-400 mr-3"></i> Big Data Tools
+                            <div class="ml-auto">
+                                <div class="flex">
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                </div>
+                            </div>
+                        </h3>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Hadoop Ecosystem</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Apache Spark</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Kafka</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Hive/HBase</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap mt-6">
+                            <span class="badge">HDFS</span>
+                            <span class="badge">MapReduce</span>
+                            <span class="badge">Spark Streaming</span>
+                            <span class="badge">Sqoop</span>
+                            <span class="badge">Oozie</span>
+                            <span class="badge">Flume</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-card p-6 rounded-lg unlockable">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-code text-cyan-400 mr-3"></i> Programming Languages
+                            <div class="ml-auto">
+                                <div class="flex">
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                </div>
+                            </div>
+                        </h3>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>SQL/PL-SQL</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Python/PySpark</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Scala</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Shell Scripting</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap mt-6">
+                            <span class="badge">SQL</span>
+                            <span class="badge">Python</span>
+                            <span class="badge">Scala</span>
+                            <span class="badge">PySpark</span>
+                            <span class="badge">Bash</span>
+                            <span class="badge">HiveQL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-card p-6 rounded-lg unlockable">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-server text-cyan-400 mr-3"></i> Databases
+                            <div class="ml-auto">
+                                <div class="flex">
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point"></span>
+                                </div>
+                            </div>
+                        </h3>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Snowflake</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>SQL Server</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Oracle</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>MongoDB</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap mt-6">
+                            <span class="badge">Snowflake</span>
+                            <span class="badge">PostgreSQL</span>
+                            <span class="badge">MySQL</span>
+                            <span class="badge">Teradata</span>
+                            <span class="badge">Cassandra</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-card p-6 rounded-lg unlockable">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-chart-line text-cyan-400 mr-3"></i> Data Visualization
+                            <div class="ml-auto">
+                                <div class="flex">
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point"></span>
+                                </div>
+                            </div>
+                        </h3>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Power BI</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Tableau</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Python Visualization</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Data Dashboarding</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap mt-6">
+                            <span class="badge">Power BI</span>
+                            <span class="badge">Tableau</span>
+                            <span class="badge">Matplotlib</span>
+                            <span class="badge">Pandas</span>
+                            <span class="badge">Seaborn</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-card p-6 rounded-lg unlockable">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-cogs text-cyan-400 mr-3"></i> DevOps & Tools
+                            <div class="ml-auto">
+                                <div class="flex">
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point active"></span>
+                                    <span class="skill-point"></span>
+                                    <span class="skill-point"></span>
+                                </div>
+                            </div>
+                        </h3>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Git/GitHub</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Jenkins</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Terraform</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <span>Docker</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="70%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap mt-6">
+                            <span class="badge">Git</span>
+                            <span class="badge">Jenkins</span>
+                            <span class="badge">Terraform</span>
+                            <span class="badge">Docker</span>
+                            <span class="badge">Linux</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-16">
+                    <h3 class="text-2xl font-bold mb-6">Tech Stack Radar</h3>
+                    <div class="radar-container">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="mt-10 bg-gray-900 bg-opacity-50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4">Test Your Knowledge: Data Tech Memory Game</h3>
+                    <p class="mb-6">Match the technologies to unlock an achievement. Click any card to start!</p>
+                    
+                    <div class="memory-game">
+                        <div class="memory-card" data-tech="hadoop">
+                            <div class="memory-card-front">
+                                <i class="fas fa-database text-3xl text-cyan-400"></i>
+                            </div>
+                            <div class="memory-card-back">
+                                <i class="fas fa-question text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="memory-card" data-tech="hadoop">
+                            <div class="memory-card-front">
+                                <span class="text-lg font-bold">Hadoop</span>
+                            </div>
+                            <div class="memory-card-back">
+                                <i class="fas fa-question text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="memory-card" data-tech="spark">
+                            <div class="memory-card-front">
+                                <i class="fas fa-bolt text-3xl text-yellow-400"></i>
+                            </div>
+                            <div class="memory-card-back">
+                                <i class="fas fa-question text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="memory-card" data-tech="spark">
+                            <div class="memory-card-front">
+                                <span class="text-lg font-bold">Spark</span>
+                            </div>
+                            <div class="memory-card-back">
+                                <i class="fas fa-question text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="memory-card" data-tech="azure">
+                            <div class="memory-card-front">
+                                <i class="fab fa-microsoft text-3xl text-blue-400"></i>
+                            </div>
+                            <div class="memory-card-back">
+                                <i class="fas fa-question text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="memory-card" data-tech="azure">
+                            <div class="memory-card-front">
+                                <span class="text-lg font-bold">Azure</span>
+                            </div>
+                            <div class="memory-card-back">
+                                <i class="fas fa-question text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="memory-card" data-tech="python">
+                            <div class="memory-card-front">
+                                <i class="fab fa-python text-3xl text-green-400"></i>
+                            </div>
+                            <div class="memory-card-back">
+                                <i class="fas fa-question text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="memory-card" data-tech="python">
+                            <div class="memory-card-front">
+                                <span class="text-lg font-bold">Python</span>
+                            </div>
+                            <div class="memory-card-back">
+                                <i class="fas fa-question text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience" class="section py-20">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-2">Work <span class="gradient-text">Experience</span></h2>
+                <p class="mb-10 text-gray-400">Hover over timeline items to see details</p>
+                
+                <div class="exp-timeline">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="exp-item">
+                            <h3 class="text-xl font-bold">Hadoop Admin</h3>
+                            <h4 class="text-lg text-cyan-400 mb-2">Edward Jones, St Louis, MO</h4>
+                            <p class="text-gray-400 mb-4">Aug 2023 - Present</p>
+                            
+                            <div class="mt-4">
+                                <h5 class="font-bold text-white mb-2">Key Responsibilities:</h5>
+                                <ul class="space-y-2">
+                                    <li class="flex">
+                                        <i class="fas fa-angle-right text-cyan-400 mt-1 mr-2"></i>
+                                        <p>Design and execution based on requirements provided by System Analysts.</p>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fas fa-angle-right text-cyan-400 mt-1 mr-2"></i>
+                                        <p>Handling large datasets using Spark in-memory capabilities, optimizing Spark jobs.</p>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fas fa-angle-right text-cyan-400 mt-1 mr-2"></i>
+                                        <p>Creating and analyzing Hive tables, implementing Avro and Parquet data formats.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-4 flex flex-wrap">
+                                <span class="badge">HDFS</span>
+                                <span class="badge">Spark</span>
+                                <span class="badge">PySpark</span>
+                                <span class="badge">Hive</span>
+                                <span class="badge">Map Reduce</span>
+                                <span class="badge">Sqoop</span>
+                                <span class="badge">Kafka</span>
+                                <span class="badge">Scala</span>
+                            </div>
+                        </div>
+                        
+                        <div></div>
+                        
+                        <div></div>
+                        
+                        <div class="exp-item">
+                            <h3 class="text-xl font-bold">Big Data Engineer</h3>
+                            <h4 class="text-lg text-cyan-400 mb-2">Bridgeway, Galesburg, IL</h4>
+                            <p class="text-gray-400 mb-4">May 2022 - Jul 2023</p>
+                            
+                            <div class="mt-4">
+                                <h5 class="font-bold text-white mb-2">Key Responsibilities:</h5>
+                                <ul class="space-y-2">
+                                    <li class="flex">
+                                        <i class="fas fa-angle-right text-cyan-400 mt-1 mr-2"></i>
+                                        <p>Developed Map-Reduce programs to eliminate irregularities and aggregate data.</p>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fas fa-angle-right text-cyan-400 mt-1 mr-2"></i>
+                                        <p>Implemented and optimized Hive UDFs for better performance results.</p>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fas fa-angle-right text-cyan-400 mt-1 mr-2"></i>
+                                        <p>Developed workflows in Oozie to manage and schedule jobs on Hadoop clusters.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-4 flex flex-wrap">
+                                <span class="badge">HDF5</span>
+                                <span class="badge">Map Reduce</span>
+                                <span class="badge">Mesos</span>
+                                <span class="badge">Hive</span>
+                                <span class="badge">Sqoop</span>
+                                <span class="badge">Scala</span>
+                                <span class="badge">GCP</span>
+                            </div>
+                        </div>
+                        
+                        <div class="exp-item">
+                            <h3 class="text-xl font-bold">Senior Technology Analyst</h3>
+                            <h4 class="text-lg text-cyan-400 mb-2">Infosys, India</h4>
+                            <p class="text-gray-400 mb-4">Mar 2019 - Dec 2021</p>
+                            
+                            <div class="mt-4">
+                                <h5 class="font-bold text-white mb-2">Key Responsibilities:</h5>
+                                <ul class="space-y-2">
+                                    <li class="flex">
+                                        <i class="fas fa-angle-right text-cyan-400 mt-1 mr-2"></i>
+                                        <p>Designed and maintained enterprise-level data warehouses and OLAP cubes.</p>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fas fa-angle-right text-cyan-400 mt-1 mr-2"></i>
+                                        <p>Analyzed web log data using HiveQL to extract metrics on visitors and page views.</p>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fas fa-angle-right text-cyan-400 mt-1 mr-2"></i>
+                                        <p>Implemented security for Hadoop Cluster with Kerberos and managed cluster performance.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-4 flex flex-wrap">
+                                <span class="badge">SQL</span>
+                                <span class="badge">Hadoop</span>
+                                <span class="badge">Cloudera Manager</span>
+                                <span class="badge">Linux</span>
+                                <span class="badge">Scala</span>
+                                <span class="badge">Map Reduce</span>
+                            </div>
+                        </div>
+                        
+                        <div></div>
+                        
+                        <div></div>
+                        
+                        <div class="exp-item">
+                            <h3 class="text-xl font-bold">Data Engineer</h3>
+                            <h4 class="text-lg text-cyan-400 mb-2">Oracle, India</h4>
+                            <p class="text-gray-400 mb-4">Mar 2017 - Feb 2019</p>
+                            
+                            <div class="mt-4">
+                                <h5 class="font-bold text-white mb-2">Key Responsibilities:</h5>
+                                <ul class="space-y-2">
+                                    <li class="flex">
+                                        <i class="fas fa-angle-right text-cyan-400 mt-1 mr-2"></i>
+                                        <p>Created MapReduce jobs for ETL transformations on transactional data sources.</p>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fas fa-angle-right text-cyan-400 mt-1 mr-2"></i>
+                                        <p>Designed scalable data architectures on Azure leveraging Azure Data Factory (ADF).</p>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fas fa-angle-right text-cyan-400 mt-1 mr-2"></i>
+                                        <p>Developed ETL/ELT pipelines using ADF, Python, and SQL with error handling and monitoring.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-4 flex flex-wrap">
+                                <span class="badge">Azure Data Factory</span>
+                                <span class="badge">Azure Blob Storage</span>
+                                <span class="badge">Azure Data Lake</span>
+                                <span class="badge">Azure Databricks</span>
+                                <span class="badge">Power BI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects" class="section py-20">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-2">Notable <span class="gradient-text">Projects</span></h2>
+                <p class="mb-10 text-gray-400">Hover and click on cards to see project details</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <div class="text-3xl text-cyan-400 mb-4">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Real-time Data Processing Pipeline</h3>
+                                <p class="text-center">Using Apache Kafka & Spark Streaming</p>
+                            </div>
+                            <div class="project-card-back">
+                                <h3 class="text-xl font-bold mb-4 gradient-text">Real-time Data Processing Pipeline</h3>
+                                <p class="mb-4">Designed and implemented a high-performance, fault-tolerant data pipeline for processing streaming data in real-time using Apache Kafka and Spark Streaming.</p>
+                                <div class="flex flex-wrap mt-auto">
+                                    <span class="badge">Kafka</span>
+                                    <span class="badge">Spark Streaming</span>
+                                    <span class="badge">Scala</span>
+                                    <span class="badge">Azure Event Hubs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <div class="text-3xl text-cyan-400 mb-4">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Cloud Data Architecture Modernization</h3>
+                                <p class="text-center">Azure & Snowflake Integration</p>
+                            </div>
+                            <div class="project-card-back">
+                                <h3 class="text-xl font-bold mb-4 gradient-text">Cloud Data Architecture Modernization</h3>
+                                <p class="mb-4">Led a major data architecture migration project, transitioning from on-premise data warehousing to a modern cloud-based solution using Azure services and Snowflake.</p>
+                                <div class="flex flex-wrap mt-auto">
+                                    <span class="badge">Azure Data Factory</span>
+                                    <span class="badge">Snowflake</span>
+                                    <span class="badge">Azure Data Lake</span>
+                                    <span class="badge">Power BI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <div class="text-3xl text-cyan-400 mb-4">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Enterprise Data Analytics Platform</h3>
+                                <p class="text-center">Big Data Insights & Visualization</p>
+                            </div>
+                            <div class="project-card-back">
+                                <h3 class="text-xl font-bold mb-4 gradient-text">Enterprise Data Analytics Platform</h3>
+                                <p class="mb-4">Developed a comprehensive analytics platform that consolidated data from multiple sources, enabling advanced analytics and interactive dashboards for business users.</p>
+                                <div class="flex flex-wrap mt-auto">
+                                    <span class="badge">Hadoop</span>
+                                    <span class="badge">Spark</span>
+                                    <span class="badge">Tableau</span>
+                                    <span class="badge">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <div class="text-3xl text-cyan-400 mb-4">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Distributed ETL Framework</h3>
+                                <p class="text-center">High-Performance Data Processing</p>
+                            </div>
+                            <div class="project-card-back">
+                                <h3 class="text-xl font-bold mb-4 gradient-text">Distributed ETL Framework</h3>
+                                <p class="mb-4">Architected a scalable ETL framework that optimized data processing for large datasets, reducing processing time by 65% and improving data quality metrics.</p>
+                                <div class="flex flex-wrap mt-auto">
+                                    <span class="badge">Spark</span>
+                                    <span class="badge">Python</span>
+                                    <span class="badge">Scala</span>
+                                    <span class="badge">Azure Databricks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <div class="text-3xl text-cyan-400 mb-4">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Data Security & Governance Framework</h3>
+                                <p class="text-center">Enterprise Data Protection</p>
+                            </div>
+                            <div class="project-card-back">
+                                <h3 class="text-xl font-bold mb-4 gradient-text">Data Security & Governance Framework</h3>
+                                <p class="mb-4">Implemented a comprehensive data governance and security framework for sensitive data, ensuring compliance with industry regulations while maintaining data accessibility.</p>
+                                <div class="flex flex-wrap mt-auto">
+                                    <span class="badge">Kerberos</span>
+                                    <span class="badge">Azure Active Directory</span>
+                                    <span class="badge">Cloudera Navigator</span>
+                                    <span class="badge">Data Encryption</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <div class="text-3xl text-cyan-400 mb-4">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Automated Data Pipeline CI/CD</h3>
+                                <p class="text-center">DevOps for Data Engineering</p>
+                            </div>
+                            <div class="project-card-back">
+                                <h3 class="text-xl font-bold mb-4 gradient-text">Automated Data Pipeline CI/CD</h3>
+                                <p class="mb-4">Designed and implemented a CI/CD pipeline for data workflows, enabling automated testing, deployment, and monitoring of ETL processes across environments.</p>
+                                <div class="flex flex-wrap mt-auto">
+                                    <span class="badge">Jenkins</span>
+                                    <span class="badge">Terraform</span>
+                                    <span class="badge">Git</span>
+                                    <span class="badge">Python Testing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="education" class="section py-20">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-2">Education & <span class="gradient-text">Certifications</span></h2>
+                <p class="mb-10 text-gray-400">Achievements unlocked</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Academic Background</h3>
+                        
+                        <div class="achievement glow">
+                            <div class="achievement-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Master of Science, Data Science</h4>
+                                <p class="text-cyan-400">Western Illinois University, Macomb, Illinois, USA</p>
+                                <p class="text-gray-400">May 2023</p>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Bachelor of Technology, Mechanical Engineering</h4>
+                                <p class="text-cyan-400">ANITS, Vishakhapatnam, Andhra Pradesh, India</p>
+                                <p class="text-gray-400">April 2017</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Professional Certifications</h3>
+                        
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Data Camp Certifications</h4>
+                                <p class="text-gray-400">R, Data Visualization with ggplot2, Exploratory Data Analysis in R, Tidyverse</p>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Google Analytics (GCP)</h4>
+                                <p class="text-gray-400">Google Cloud Platform certification in data analytics</p>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Snowflake Certification</h4>
+                                <p class="text-gray-400">Expertise in Snowflake cloud data platform</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section py-20">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-2">Contact <span class="gradient-text">Me</span></h2>
+                <p class="mb-10 text-gray-400">Let's work together on your next project</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="tech-card p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="text-xl text-cyan-400 mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p>vvinod0301@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="text-xl text-cyan-400 mr-4">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Phone</h4>
+                                <p>309-431-4778</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="text-xl text-cyan-400 mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Location</h4>
+                                <p>Macomb, IL</p>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mt-10 mb-6">Connect With Me</h3>
+                        
+                        <div class="flex justify-center">
+                            <a href="https://www.linkedin.com/in/kumarvinodv/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="mailto:vvinod0301@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="py-8 bg-gray-900 bg-opacity-70 mt-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="text-2xl font-bold mono gradient-text mb-4">VV.dev</div>
+                <p class="mb-6">Data Engineer & Hadoop Developer</p>
+                
+                <div class="flex justify-center mb-6">
+                    <a href="https://www.linkedin.com/in/kumarvinodv/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:vvinod0301@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                </div>
+                
+                <p class="text-sm text-gray-500">&copy; 2023 Vinod Kumar V. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        // Particles.js initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: '#0ff'
+                    },
+                    shape: {
+                        type: 'circle',
+                        stroke: {
+                            width: 0,
+                            color: '#000000'
+                        },
+                        polygon: {
+                            nb_sides: 5
+                        }
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: false,
+                        anim: {
+                            enable: false,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true,
+                        anim: {
+                            enable: false,
+                            speed: 40,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#0ff',
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                        bounce: false,
+                        attract: {
+                            enable: false,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: 'grab'
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: 'push'
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        bubble: {
+                            distance: 400,
+                            size: 40,
+                            duration: 2,
+                            opacity: 8,
+                            speed: 3
+                        },
+                        repulse: {
+                            distance: 200,
+                            duration: 0.4
+                        },
+                        push: {
+                            particles_nb: 4
+                        },
+                        remove: {
+                            particles_nb: 2
+                        }
+                    }
+                },
+                retina_detect: true
+            });
+            
+            // Terminal text animation
+            const texts = [
+                "Welcome to my portfolio! I'm Vinod Kumar V.",
+                "Data Engineer with 8+ years of experience.",
+                "Expertise in Hadoop, Spark, AWS, Azure, and Snowflake.",
+                "Let's build something amazing together!"
+            ];
+            
+            let textIndex = 0;
+            const typeWriter = () => {
+                const terminalText = document.getElementById('terminalText');
+                terminalText.textContent = texts[textIndex];
+                terminalText.style.width = '0';
+                let charIndex = 0;
+                const type = () => {
+                    if (charIndex < texts[textIndex].length) {
+                        terminalText.style.width = charIndex + 1 + 'ch';
+                        charIndex++;
+                        setTimeout(type, 50);
+                    } else {
+                        setTimeout(() => {
+                            textIndex = (textIndex + 1) % texts.length;
+                            typeWriter();
+                        }, 3000);
+                    }
+                };
+                type();
+            };
+            
+            typeWriter();
+            
+            // Scroll progress bar
+            window.onscroll = function() {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById("progressBar").style.width = scrolled + "%";
+            };
+            
+            // Counters animation
+            const counters = {
+                counter1: { target: 8, current: 0 },
+                counter2: { target: 25, current: 0 },
+                counter3: { target: 42, current: 0 },
+                counter4: { target: 3, current: 0 }
+            };
+            
+            const counterElements = document.querySelectorAll('.counter');
+            const counterInterval = setInterval(() => {
+                let allDone = true;
+                
+                for (const [id, data] of Object.entries(counters)) {
+                    if (data.current < data.target) {
+                        data.current += 1;
+                        document.getElementById(id).textContent = data.current;
+                        allDone = false;
+                    }
+                }
+                
+                if (allDone) {
+                    clearInterval(counterInterval);
+                }
+            }, 100);
+            
+            // Skill bars animation
+            const skillProgressBars = document.querySelectorAll('.skill-progress');
+            
+            const animateSkillBars = () => {
+                skillProgressBars.forEach(bar => {
+                    const targetWidth = bar.getAttribute('data-width');
+                    bar.style.width = targetWidth;
+                });
+            };
+            
+            // Trigger skill bars animation when section is in viewport
+            const skillsSection = document.getElementById('skills');
+            
+            const isInViewport = (element) => {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= window.innerHeight &&
+                    rect.bottom >= 0
+                );
+            };
+            
+            let skillsAnimated = false;
+            
+            window.addEventListener('scroll', () => {
+                if (!skillsAnimated && isInViewport(skillsSection)) {
+                    animateSkillBars();
+                    skillsAnimated = true;
+                }
+            });
+            
+            // Initial check in case skills are already in viewport on page load
+            if (isInViewport(skillsSection)) {
+                animateSkillBars();
+                skillsAnimated = true;
+            }
+            
+            // Radar Chart for Skills
+            const radarChart = new Chart(
+                document.getElementById('radarChart'),
+                {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            'Hadoop Ecosystem',
+                            'Cloud Services',
+                            'Programming',
+                            'Databases',
+                            'Data Processing',
+                            'Visualization',
+                            'DevOps'
+                        ],
+                        datasets: [{
+                            label: 'Skill Proficiency',
+                            data: [95, 90, 85, 85, 92, 80, 75],
+                            backgroundColor: 'rgba(0, 255, 255, 0.2)',
+                            borderColor: 'rgba(0, 255, 255, 1)',
+                            pointBackgroundColor: 'rgba(138, 43, 226, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(138, 43, 226, 1)'
+                        }]
+                    },
+                    options: {
+                        elements: {
+                            line: {
+                                borderWidth: 3
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: 'rgba(168, 178, 209, 1)'
+                                }
+                            }
+                        },
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    color: 'rgba(168, 178, 209, 0.2)'
+                                },
+                                grid: {
+                                    color: 'rgba(168, 178, 209, 0.2)'
+                                },
+                                pointLabels: {
+                                    color: 'rgba(168, 178, 209, 1)',
+                                    font: {
+                                        size: 14
+                                    }
+                                },
+                                ticks: {
+                                    backdropColor: 'transparent',
+                                    color: 'rgba(168, 178, 209, 0.8)'
+                                }
+                            }
+                        }
+                    }
+                }
+            );
+            
+            // Memory Game Logic
+            const cards = document.querySelectorAll('.memory-card');
+            
+            let hasFlippedCard = false;
+            let lockBoard = false;
+            let firstCard, secondCard;
+            
+            function flipCard() {
+                if (lockBoard) return;
+                if (this === firstCard) return;
+                
+                this.classList.add('flip');
+                
+                if (!hasFlippedCard) {
+                    // First click
+                    hasFlippedCard = true;
+                    firstCard = this;
+                } else {
+                    // Second click
+                    secondCard = this;
+                    checkForMatch();
+                }
+            }
+            
+            function checkForMatch() {
+                let isMatch = firstCard.dataset.tech === secondCard.dataset.tech;
+                
+                isMatch ? disableCards() : unflipCards();
+            }
+            
+            function disableCards() {
+                firstCard.removeEventListener('click', flipCard);
+                secondCard.removeEventListener('click', flipCard);
+                
+                resetBoard();
+            }
+            
+            function unflipCards() {
+                lockBoard = true;
+                
+                setTimeout(() => {
+                    firstCard.classList.remove('flip');
+                    secondCard.classList.remove('flip');
+                    
+                    resetBoard();
+                }, 1500);
+            }
+            
+            function resetBoard() {
+                [hasFlippedCard, lockBoard] = [false, false];
+                [firstCard, secondCard] = [null, null];
+            }
+            
+            (function shuffle() {
+                cards.forEach(card => {
+                    let randomPos = Math.floor(Math.random() * 8);
+                    card.style.order = randomPos;
+                });
+            })();
+            
+            cards.forEach(card => card.addEventListener('click', flipCard));
+        });
+        
+        // Email sending functionality
+        function sendEmail(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            Email.send({
+                SecureToken: "YOUR_SMTP_SECURE_TOKEN", // You'll need to get this from SMTP.js
+                To: 'vvinod0301@gmail.com',
+                From: email,
+                Subject: "New Contact Form Submission from " + name,
+                Body: `
+                    Name: ${name}<br>
+                    Email: ${email}<br>
+                    Message: ${message}
+                `
+            }).then(
+                message => {
+                    if (message === "OK") {
+                        alert("Message sent successfully!");
+                        document.getElementById('contactForm').reset();
+                    } else {
+                        alert("Error sending message. Please try again.");
+                    }
+                }
+            );
+            
+            return false;
+        }
+    </script>
+</body>
+</html>

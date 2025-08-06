@@ -1,0 +1,20 @@
+{
+  "name": "university-chatbot",
+  "version": "1.0.0",
+  "description": "A hybrid university chatbot with button navigation and natural language processing",
+  "main": "backend/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "backend:dev": "cd backend && npm run dev",
+    "frontend:dev": "cd frontend && npm start",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "keywords": ["chatbot", "university", "azure", "openai", "react", "nodejs"],
+  "author": "University Chatbot Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
